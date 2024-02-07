@@ -1,0 +1,8 @@
+* {
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
