@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "translate": "^2.0.2",
-    "translate-google": "^1.5.0"
-  }
-}
