@@ -18,7 +18,7 @@ import Profile from './components/profile/Profile';
 import ResultsSearch from './components/resultsSearch/ResultsSearch';
 import GameSimple from './components/gameSimple/GameSimple';
 import TablesGame from './components/tablesGame/TablesGame';
-import UserProfile from './components/userProfile/userProfile';
+import UserProfile from './components/userProfile/UserProfile';
 import Welcome from './components/welcome/Welcome';
 
 function App() {
