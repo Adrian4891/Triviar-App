@@ -21,6 +21,7 @@ import UserProfile from './components/userProfile/UserProfile';
 import Welcome from './components/welcome/Welcome';
 import AvatarsImg from './components/avatarsImg/AvatarsImg';
 
+
 function App() {
   
   const [ hidenNotis, setHidenNotis ] = useState(false);
