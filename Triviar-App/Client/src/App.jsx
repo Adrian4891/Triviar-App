@@ -8,7 +8,7 @@ import Login from './components/login/Login';
 import SignUp from './components/signUp/SignUp';
 import MultiPlay from './components/multiPlay/MultiPlay';
 import CreateProfile from './components/createProfile/CreateProfile';
-import AvatarsImg from './components/avatarsImg/AvatarsImg';
+import AvatarsImg from './components/avatarsImg/avatarsImg';
 import Cookies from "js-cookie";
 import axios from "axios";
 import { URL_BASE } from './utils';
