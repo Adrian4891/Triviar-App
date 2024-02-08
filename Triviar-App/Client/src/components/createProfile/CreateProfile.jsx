@@ -1,4 +1,4 @@
-import AvatarsImg from "../avatarsImg/avatarsImg";
+import AvatarsImg from "../avatarsImg/AvatarsImg";
 import { useState, useEffect } from "react";
 import { validateDataProfile } from "../../validateData";
 import axios from "axios";

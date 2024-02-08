@@ -55,4 +55,4 @@ const AvatarsImg = ({openList, setOpenList, userData ,setUserData}) => {
     );
 }
 
-export default AvatarsImg
+export default AvatarsImg;

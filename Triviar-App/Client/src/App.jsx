@@ -8,7 +8,6 @@ import Login from './components/login/Login';
 import SignUp from './components/signUp/SignUp';
 import MultiPlay from './components/multiPlay/MultiPlay';
 import CreateProfile from './components/createProfile/CreateProfile';
-import AvatarsImg from './components/avatarsImg/avatarsImg';
 import Cookies from "js-cookie";
 import axios from "axios";
 import { URL_BASE } from './utils';
@@ -20,6 +19,7 @@ import GameSimple from './components/gameSimple/GameSimple';
 import TablesGame from './components/tablesGame/TablesGame';
 import UserProfile from './components/userProfile/UserProfile';
 import Welcome from './components/welcome/Welcome';
+import AvatarsImg from './components/avatarsImg/AvatarsImg';
 
 function App() {
   
