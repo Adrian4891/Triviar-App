@@ -19,7 +19,7 @@ import TablesGame from "./components/tablesGame/TablesGame";
 import UserProfile from "./components/userProfile/UserProfile";
 import Welcome from "./components/welcome/Welcome";
 import AvatarsImg from "./components/avatarsImg/AvatarsImg";
-import NotFound from "./pages/notFound/Notfound";
+import NotFound from "./pages/notFound/NotFound";
 import Spinner from "./components/spinner/Spinner";
 
 function App() {
