@@ -49,6 +49,7 @@ const Header = ({
             <button
               className="hover:underline decoration-2 shadow-xl"
               onClick={() => setHidenNotis(!hidenNotis)}
+              disabled={!userId ? "true" : false}
             >
               Notificaciones
             </button>
