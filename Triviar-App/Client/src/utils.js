@@ -1,2 +1,4 @@
-export const URL_BASE = "https://triviarapi.onrender.com";
+export const URL_BASE = "https://triviarapi.onrender.com/";
+
+
 
