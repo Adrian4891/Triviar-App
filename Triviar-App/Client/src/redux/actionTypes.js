@@ -14,7 +14,6 @@ export const DELETE_USER_SESION = "DELETE_USER_SESION";
 export const ADD_PROFILE = "GET_PROFILE";
 export const DEL_PROFILE = "DEL_PROFILE";
 
-export const ADD_USER_CONNECT = "ADD_USER_CONNECT";
 
 export const ACT_DATA_PLAYERS = "ACT_DATA_PLAYERS";
 

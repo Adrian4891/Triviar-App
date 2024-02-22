@@ -2,14 +2,16 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { URL_BASE } from "../../utils";
-import QuestionAndOptions from "../questionAndOptions/QuestionAndOptions";
+import QuestionAndOptions from "../../components/questionAndOptions/QuestionAndOptions";
 import Cookies from "js-cookie";
 import { getProfile } from "../../redux/actions";
-import TableFinalGame from "../tableFinalGame/TableFinalGame";
-import Spinner from "../spinner/Spinner";
+import TableFinalGame from "../../components/tableFinalGame/TableFinalGame";
+import Spinner from "../../components/spinner/Spinner";
+import { useNavigate } from "react-router-dom";
 
 const GameSimple = ({load, setLoad}) => {
     const profile = useSelector(state => state.profile);
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const userId = Cookies.get("userId");
     const [ answers, setAnswers ] = useState([]);
@@ -76,6 +78,7 @@ const GameSimple = ({load, setLoad}) => {
         getAnswers();   
         setLoad(true)
         setTimeout(() => {
+            if(!userId) return navigate("/signIn");
             setLoad(false);  
         }, 1000);
     },[]);

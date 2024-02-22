@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import { URL_BASE } from "../../utils";
-import HeaderChatTag from "../headerChatTag/HeaderChatTag";
-import TagChat from "../tagChat/TagChat";
-import FormChatMain from "../formChatMain/FormChatMain";
-import PrivTagChat from "../privChat/PrivTagChat";
+import HeaderChatTag from "../../components/headerChatTag/HeaderChatTag";
+import TagChat from "../../components/tagChat/TagChat";
+import FormChatMain from "../../components/formChatMain/FormChatMain";
+import PrivTagChat from "../../components/privChat/PrivTagChat";
 import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
 import io, { Socket } from "socket.io-client";
 import { v4 as uuidv4 } from 'uuid';
+import Spinner from "../../components/spinner/Spinner";
+import { useNavigate } from "react-router-dom";
 
 
 let socket = io(URL_BASE);
 
-const Chat = () => {
+const Chat = ({load, setLoad}) => {
     const [ chats, setChats ] = useState([]);
     const [ profiles, setProfiles ] = useState([]);
     const [ inpText , setInpText ] = useState("")
@@ -28,13 +30,19 @@ const Chat = () => {
     let messagePriv = {};
     let userMsg = {};
     const userId = Cookies.get("userId");
+    const navigate = useNavigate();
     let user ;
 
 
   useEffect(()=>{
+    setLoad(true);
     socket = io(URL_BASE);
+    setTimeout(() => {
+        if(!userId) return navigate("/signIn");
+       setLoad(false);
+    }, 1500);
     return()=>{
-        socket.disconnect()
+        socket.disconnect();
     }
   },[])
 
@@ -172,10 +180,17 @@ const Chat = () => {
         };
     },[messagesPriv]);
 
+    if(load){
+        return(
+           <Spinner/>
+        )
+        
+    }
+
     
     return(
-        <div className="d-flex justify-center items-center h-screen w-full p-1 bg-gradient-to-r from-blue-600 to-orange-500">
-           <section className="d-flex justify-right flex-col rounded-1 h-5/6 px-4 py-3 bg-orange-300 gap-2 w-full md:w-2/3">
+        <div className="flex justify-center items-center h-screen w-full  bg-gradient-to-r from-blue-600 to-orange-500">
+           <section className="flex justify-right flex-col rounded-1 h-screen md:h-5/6 px-4 py-3 bg-orange-300 gap-2  md:w-2/3">
     
                <HeaderChatTag
                closePriv={closePriv}

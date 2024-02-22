@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { URL_BASE } from "../../utils";
 import axios from "axios";
-import ChatInPlay from "../chatInPlay/ChatInPlay";
-import QuestionAndOptions from "../questionAndOptions/QuestionAndOptions";
-import TableFinalGame from "../tableFinalGame/TableFinalGame";
-import HeaderGame from "../headerGame/HeaderGame";
+import ChatInPlay from "../../components/chatInPlay/ChatInPlay";
+import QuestionAndOptions from "../../components/questionAndOptions/QuestionAndOptions";
+import TableFinalGame from "../../components/tableFinalGame/TableFinalGame";
+import HeaderGame from "../../components/headerGame/HeaderGame";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import { sumPointsPlayer, actGame, actualizarData, createDataGame, sumQuantityRes, actDataGame, resetDataGame } from "../../redux/actions";
 import io from "socket.io-client";
-import Spinner from "../spinner/Spinner";
+import Spinner from "../../components/spinner/Spinner";
 
 const socket = io('http://localhost:3001');
 
@@ -21,7 +21,6 @@ const MultiPlay = ({load, setLoad}) => {
   const [ answers, setAnswers ] = useState([]);
   const [ index, setIndex ] = useState(0);
   const userId = Cookies.get("userId");
-  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const players = useSelector(state=> state.players);

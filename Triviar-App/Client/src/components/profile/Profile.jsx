@@ -1,21 +1,19 @@
-import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import CardProfile from "../cardProfile/CardProfile";
 
 const Profile = () => {
-    const profile = useSelector(state=> state.profile);
-    const navigate = useNavigate();
+  const profile = useSelector((state) => state.profile);
 
-    return(
-        <CardProfile
-        userId={profile?.userId}
-        userName={profile?.userName}
-        picture={profile?.picture}
-        points={profile?.points}
-        country={profile?.country}
-        birthday={profile?.birthday}
-        />
-    )
-}
+  return (
+    <CardProfile
+      userId={profile?.userId}
+      userName={profile?.userName}
+      picture={profile?.picture}
+      points={profile?.points}
+      country={profile?.country}
+      birthday={profile?.birthday}
+    />
+  );
+};
 
 export default Profile;
