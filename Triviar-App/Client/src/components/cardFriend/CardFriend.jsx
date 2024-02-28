@@ -16,7 +16,6 @@ const CardFriend = ({
         friends.map((friend) => {
           return (
             <div
-              onClick={() => sendNotification(friend, setListHiden(!listHiden))}
               key={friend._id}
               className="text-gray-600 font-bold py-1 px-4 border-1 border-purple-500 rounded-1 mb-2"
             >

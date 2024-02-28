@@ -20,7 +20,6 @@ const Notifications = ({ setHidenNotis, hidenNotis }) => {
   const [filterNotis, setFilterNotis] = useState([]);
   const dispatch = useDispatch();
   const notificationsGame = useSelector((state) => state.notificationsGame);
-  const players = useSelector((state) => state.players);
 
   const checkedNotifications = async (id) => {
     try {
@@ -81,12 +80,12 @@ const Notifications = ({ setHidenNotis, hidenNotis }) => {
   return (
     <>
       <div
-        className={`bg-purple-300 fixed z-30 p-2 d-flex justify-start items-center flex-col gap-3 rounded-2 scroll-auto 
-             ${
-               hidenNotis
-                 ? "h-96 md:w-2/4 w-72 md:top-5 md:left-72 top-2 left-5"
-                 : "d-none"
-             } `}
+        className={`bg-purple-300 fixed z-30 p-2 d-flex justify-start items-center flex-col gap-3 rounded-2 overflow-auto
+        ${
+          hidenNotis
+            ? "h-96 md:w-2/4 w-72 md:top-5 md:left-72 top-2 left-5"
+            : "d-none"
+        } `}
       >
         <div className="w-full text-right">
           <span
@@ -99,10 +98,10 @@ const Notifications = ({ setHidenNotis, hidenNotis }) => {
         {filterNotis.length > 0 &&
           filterNotis.map((noti) => {
             return (
-              <>
+              <div key={noti._id} className="w-full">
                 {!noti.checked && userId === noti.userIdInvitation && (
                   <div
-                    key={noti._id}
+                   
                     className="bg-white rounded-2 px-2 py-3 relative w-full hover:border hover:border-purple-600 cursor-pointer shadow-gray-400 shadow-md hover:shadow-purple-500"
                   >
                     <div className="text-white">
@@ -129,7 +128,7 @@ const Notifications = ({ setHidenNotis, hidenNotis }) => {
                     </div>
                   </div>
                 )}
-              </>
+              </div>
             );
           })}
       </div>

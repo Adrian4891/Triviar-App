@@ -36,7 +36,6 @@ const deleteFriend = async (req, res) => {
     try {
         const { userId, friendId } = req.query;
         const friendDel = await Friends.findOneAndDelete({userId, friendId});
-        console.log(friendDel);
         return res.status(200).json(friendDel)
     } catch (error) {
         return res.status(404).send(error.message);
