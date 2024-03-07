@@ -92,7 +92,7 @@ const MultiPlay = ({load, setLoad}) => {
     return()=>{
       socket.off("questions", getQuestions);
     }
-  },[]);
+  },[answers]);
 
   useEffect(()=>{
     getAnswers();
