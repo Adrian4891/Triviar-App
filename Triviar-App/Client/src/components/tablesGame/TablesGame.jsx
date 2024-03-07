@@ -62,8 +62,10 @@ const TablesGame = ({ load, setLoad }) => {
         dispatch(createDataGame(data));
         socket.emit("data", data);
       }
-      navigate("/multiPlay");
-      deleteTable(data._id);
+      if(data.userIdInvitation === userId){
+        navigate("/multiPlay");
+        deleteTable(data._id);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -71,9 +73,11 @@ const TablesGame = ({ load, setLoad }) => {
 
   useEffect(() => {
     const checkedTable = (data) => {
-      dispatch(createGame(data));
-      navigate("/multiPlay");
-      dispatch(createDataGame(data));
+      if(data.userId === userId){
+        dispatch(createGame(data));
+        navigate("/multiPlay");
+        dispatch(createDataGame(data));
+      }
     };
     socket.on("data", checkedTable);
 

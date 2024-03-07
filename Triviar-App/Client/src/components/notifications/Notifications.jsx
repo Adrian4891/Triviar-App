@@ -29,8 +29,10 @@ const Notifications = ({ setHidenNotis, hidenNotis }) => {
         dispatch(createDataGame(data));
         socket.emit("data", data);
       }
-      navigate("/multiPlay");
-      deleteNoti(id);
+      if(data.userIdInvitation === userId){
+        navigate("/multiPlay");
+        deleteNoti(id);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -38,9 +40,11 @@ const Notifications = ({ setHidenNotis, hidenNotis }) => {
 
   useEffect(() => {
     const checkNotification = (data) => {
-      dispatch(createGame(data));
-      navigate("/multiPlay");
-      dispatch(createDataGame(data));
+      if(data.userId === userId){
+        dispatch(createGame(data));
+        navigate("/multiPlay");
+        dispatch(createDataGame(data)); 
+      }
     };
 
     socket.on("data", checkNotification);

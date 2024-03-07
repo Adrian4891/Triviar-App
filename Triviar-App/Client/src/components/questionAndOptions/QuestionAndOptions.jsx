@@ -5,6 +5,7 @@ import { URL_BASE } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
 import { resetDataGame } from "../../redux/actions";
 import Swal from "sweetalert2";
+import Cookies from "js-cookie";
 
 const socket = io(`${URL_BASE}`);
 
@@ -25,6 +26,7 @@ const QuestionAndOptions = ({
   const name = profile.userName;
   const [activeInp, setActiveInp] = useState(true);
   const players = useSelector((state) => state.players);
+  const userId = Cookies.get("userId");
 
   const newGame = () => {
     const data = infoGame.map((info) => {
@@ -53,18 +55,19 @@ const QuestionAndOptions = ({
 
   useEffect(() => {
     const endGame = (profile) => {
-      if (profile) {
-        Swal.fire({
-          text: `${profile?.userName} Salio del juego`,
-          icon: "warning",
-          confirmButtonColor: "#3085d6",
-          confirmButtonText: "Ok Volver!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate("/");
-          }
-        });
-      }
+        if (profile) {
+          Swal.fire({
+            text: `${profile?.userName} Salio del juego`,
+            icon: "warning",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Ok Volver!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate("/");
+            }
+          });
+        }
+      
     };
     socket.on("profile", endGame);
     return () => {
