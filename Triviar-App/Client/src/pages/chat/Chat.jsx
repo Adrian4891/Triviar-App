@@ -11,7 +11,6 @@ import { v4 as uuidv4 } from 'uuid';
 import Spinner from "../../components/spinner/Spinner";
 import { useNavigate } from "react-router-dom";
 
-
 let socket = io(URL_BASE);
 
 const Chat = ({load, setLoad}) => {

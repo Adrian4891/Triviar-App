@@ -12,7 +12,7 @@ import { sumPointsPlayer, actGame, actualizarData, createDataGame, sumQuantityRe
 import io from "socket.io-client";
 import Spinner from "../../components/spinner/Spinner";
 
-const socket = io('http://localhost:3001');
+const socket = io(URL_BASE);
 
 const MultiPlay = ({load, setLoad}) => {
   const [ open, setOpen ] = useState(false);
@@ -33,10 +33,10 @@ const MultiPlay = ({load, setLoad}) => {
   const getAnswers = async () =>{
     try {
       const { data } = await axios(`${URL_BASE}/answers`)
-      setIndex(0)
-      setAnswers(data);
       const questions = data;
       socket.emit("questions", questions);
+      setIndex(0)
+      setAnswers(data);
       
     } catch (error) {
       console.log(error);
@@ -92,7 +92,7 @@ const MultiPlay = ({load, setLoad}) => {
     return()=>{
       socket.off("questions", getQuestions);
     }
-  },[answers]);
+  },[]);
 
   useEffect(()=>{
     getAnswers();
